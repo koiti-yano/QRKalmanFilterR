@@ -3,9 +3,9 @@
 #' @importFrom base forwardsolve diag
 #' @export
 #' @param Lw a lower triangular matrix
-#' @example 
+#' @examples
 #' Lw <- matrix(c(3, 2, 1, 0, 4, 1, 0, 0, 2), nrow = 3, ncol = 3)
-#' fs(lw) # 
+#' fs(lw) #
 #' solve(Lw)
 
 fs <- function(Lw){

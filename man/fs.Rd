@@ -12,3 +12,8 @@ fs(Lw)
 \description{
 fs: the inverse of a lower triangular matrix with forwardsolve
 }
+\examples{
+Lw <- matrix(c(3, 2, 1, 0, 4, 1, 0, 0, 2), nrow = 3, ncol = 3)
+fs(lw) #
+solve(Lw)
+}

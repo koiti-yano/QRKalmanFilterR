@@ -12,3 +12,8 @@ bs(Up)
 \description{
 bs: the inverse of a upper triangular matrix with backsolve
 }
+\examples{
+Up <- matrix(c(2, 0, 0, 3, 4, 0, 3, 2, 5), nrow = 3, ncol = 3)
+bs(Up) #
+solve(Up)
+}

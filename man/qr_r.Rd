@@ -12,10 +12,10 @@ qr_r(AA, BB)
 Square root Kalman Filter using only QR decompositions.
 }
 \details{
-This package provides a square root Kalman filter implementation 
+This package provides a square root Kalman filter implementation
 that uses only QR decompositions. This is a numerically stable way to
 implement the Kalman filter.
 }
 \author{
-Kevin Tracy, Koichi (Koiti) Yano
+Koichi (Koiti) Yano
 }

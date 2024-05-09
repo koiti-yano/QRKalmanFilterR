@@ -1,5 +1,7 @@
 #' kalman_filter_recursion.R
-#' The Kalman filter is a recursive algorithm for estimating
+#' @title Kalman Filter recursion
+#' @description Kalman Filter recursion.
+#' @details The Kalman filter is a recursive algorithm for estimating
 #' the state of a linear dynamic system from a series of observed
 #' measurements.
 #'
@@ -43,6 +45,7 @@
 #' @return A list with the following components:
 #' \item{xt}{The estimated state vector (\eqn{k \times 1})}
 #' \item{Pt}{The estimated state covariance matrix (\eqn{k \times k})}
+#' @export
 
 kalman_filter_recursion <- function(y, u, x0, P0, F, E, H,
                                     V, W) {

@@ -37,6 +37,7 @@
 #' u <- matrix(0, 1, 1)
 #' y <- matrix(c(1, 2), 2, 1)
 #' kalman_filter(y, u, FF, EE, HH, QQ, RR, x0, P0)
+#' @export
 
 qr_kalman_filter_recursion <- function(y, u = 0, x0, Sig0, F, E, H,
                                        Gm_v, Gm_w) {
