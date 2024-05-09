@@ -46,7 +46,7 @@
 
 kalman_filter_recursion <- function(y, u, x0, P0, F, E, H,
                                     V, W) {
-  source("kalman_filter.R")
+  source("../R/kalman_filter.R") # Need to improve this line
   yy<-y # variable traceability
   uu <- u # variable traceability
   FF <- F # variable traceability
