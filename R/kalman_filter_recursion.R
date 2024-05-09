@@ -9,15 +9,15 @@
 #' measurements.
 #'
 #' The state space model is given by
-#' x(t) = F x(t-1) + E u(t) + v(t)
-#' y(t) = H x(t) + w(t)
-#' where x(t) is the state vector (\eqn{k \times 1}),
-#' y(t) is the observation vector (\eqn{l \times 1}),
-#' u(t) is the exogenous vector (\eqn{n \times 1}),
-#' v(t) is the state noise (\eqn{k \times 1}),
-#' and w(t) is the observation noise (\eqn{l \times 1}).
+#' \deqn{x(t) = F x(t-1) + E u(t) + v(t)}
+#' \deqn{y(t) = H x(t) + w(t)}
+#' where \eqn{x(t)} is the state vector (\eqn{k \times 1}),
+#' \eqn{y(t)} is the observation vector (\eqn{l \times 1}),
+#' \eqn{u(t)} is the exogenous vector (\eqn{n \times 1}),
+#' \eqn{v(t)} is the state noise (\eqn{k \times 1}),
+#' and \eqn{w(t)} is the observation noise (\eqn{l \times 1}).
 #' The Kalman filter is used to estimate the state vector
-#' x(t) given the observations y(t).
+#' \eqn{x(t)} given the observations \eqn{y(t)}.
 #'
 #' The Kalman filter is implemented using the following recursion:
 #' Prediction step:
@@ -30,9 +30,11 @@
 #'  \deqn{K(t) = P(t|t-1) H^t s(t)^{-1}}
 #'  \deqn{x(t|t) = x(t|t-1) + K(t) e(t)}
 #'  \deqn{P(t|t) = (I - K(t) H) P(t|t-1)}
-#'  where x(t|t) is the estimated state vector at time t given the observations up to time t,
-#'  P(t|t) is the estimated state covariance matrix at time t given the observations up to time t,
-#'  K(t) is the Kalman gain at time t,
+#'  where \eqn{x(t|t)} is the estimated state vector at time t given
+#'  the observations up to time t,
+#'  \eqn{P(t|t)} is the estimated state covariance matrix
+#'  at time t given the observations up to time t,
+#'  \eqn{K(t)} is the Kalman gain at time t,
 #' See Kitagawa, (2010), Introduction to Time Series Modeling, Chapman & Hall
 #' for more details.
 #'

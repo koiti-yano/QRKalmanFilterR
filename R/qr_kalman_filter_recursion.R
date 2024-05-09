@@ -8,13 +8,13 @@
 #' The state space model is given by
 #' \deqn{x(t) = F x(t-1) + E u(t) + v(t)}
 #' \deqn{y(t) = H x(t) + w(t)}
-#' where x(t) is the state vector (\eqn{k \times 1}),
-#' y(t) is the observation vector (\eqn{l \times 1}),
-#' u(t) is the exogenous vector (\eqn{n \times 1}),
-#' v(t) is the state noise (\eqn{k \times 1}),
-#' and w(t) is the observation noise (\eqn{l \times 1}).
+#' where \eqn{x(t)} is the state vector (\eqn{k \times 1}),
+#' \eqn{y(t)} is the observation vector (\eqn{l \times 1}),
+#' \eqn{u(t)} is the exogenous vector (\eqn{n \times 1}),
+#' \eqn{v(t)} is the state noise (\eqn{k \times 1}),
+#' and \eqn{w(t)} is the observation noise (\eqn{l \times 1}).
 #' The square root Kalman Filter is used to estimate the state vector
-#' x(t) given the observations y(t).
+#' \eqn{x(t)} given the observations \eqn{y(t)}.
 #'
 #' The QR Kalman filter (square root Kalman Filter using only QR
 #' decompositions) is implemented using the following recursion:
@@ -27,13 +27,12 @@
 #'  Update step:
 #'  \deqn{K(t) = {[G(t)^{-1} (G(t)^{-t}  H^t) { \Sigma (t|t-1)}^t \Sigma(t|t-1)]}^{-t}}
 #'  \deqn{x(t|t) = x(t|t-1) + K(t) e(t)}
-#'  \deqn{Sig(t|t) = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)}
-#'  where x(t|t) is the estimated state vector at time t given the
-#'  observations up to time t, P(t|t) is the estimated state covariance
-#'  matrix at time t given the observations up to time t,
-#'  K(t) is the Kalman gain at time t,
-#' See Kitagawa, (2010), Introduction to Time Series Modeling, Chapman & Hall
-#' for more details.
+#'  \deqn{\Sigma(t|t) = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)}
+#'  where \eqn{x(t|t)} is the estimated state vector at time t given the
+#'  observations up to time t, \eqn{G(t)} is the square root of
+#'  the estimated state covariance matrix at time t given
+#' the observations up to time t,
+#'  \eqn{K(t)} is the Kalman gain at time t,
 #'
 #' @param y The observation vector (\eqn{l \times 1})
 #' @param u The exogenous vector (\eqn{n \times 1})
