@@ -2,8 +2,7 @@
 % Please edit documentation in R/qr_kalman_filter_recursion.R
 \name{qr_kalman_filter_recursion}
 \alias{qr_kalman_filter_recursion}
-\title{qr kalman_filter_recursion.R
-Square root Kalman Filter using only QR decompositions.}
+\title{qr_kalman_filter_recursion}
 \usage{
 qr_kalman_filter_recursion(y, u = 0, x0, Sig0, F, E, H, Gm_v, Gm_w)
 }
@@ -32,30 +31,33 @@ A list with the following components:
 \item{Sig(t)}{The square root of the estimated state covariance matrix (\eqn{k \times k})}
 }
 \description{
+qr_kalman_filter_recursion is the main function to implement
+the square root Kalman Filter using only QR decompositions.
+}
+\details{
 The state space model is given by
-x(t) = F x(t-1) + E u(t) + v(t)
-y(t) = H x(t) + w(t)
+\deqn{x(t) = F x(t-1) + E u(t) + v(t)}
+\deqn{y(t) = H x(t) + w(t)}
 where x(t) is the state vector (\eqn{k \times 1}),
 y(t) is the observation vector (\eqn{l \times 1}),
 u(t) is the exogenous vector (\eqn{n \times 1}),
 v(t) is the state noise (\eqn{k \times 1}),
 and w(t) is the observation noise (\eqn{l \times 1}).
-The Kalman filter is used to estimate the state vector
+The square root Kalman Filter is used to estimate the state vector
 x(t) given the observations y(t).
-}
-\details{
+
 The QR Kalman filter (square root Kalman Filter using only QR
 decompositions) is implemented using the following recursion:
 Prediction step:
  \deqn{x(t|t-1) = F x(t-1|t-1) + E u(t)}
- \deqn{Sig(t|t-1) = gr_r(Sigma(t-1|t-1) F^t, Gam_v)}
+ \deqn{\Sigma(t|t-1) = gr_r(\Sigma(t-1|t-1) F^t, \Gamma_v)}
  Innovation step:
  \deqn{e(t) = y(t) - H x(t|t-1)}
- \deqn{G(t) = gr_r(Sig(t|t-1) H^t, Gam_w)}
+ \deqn{G(t) = gr_r(\Sigma (t|t-1) H^t, \Gamma_w)}
  Update step:
- \deqn{K(t) = {[G(t)^{-1} (G(t)^{-t}  H^t) {Sig(t|t-1)}^t Sig(t|t-1)]}^{-t}}
+ \deqn{K(t) = {[G(t)^{-1} (G(t)^{-t}  H^t) { \Sigma (t|t-1)}^t \Sigma(t|t-1)]}^{-t}}
  \deqn{x(t|t) = x(t|t-1) + K(t) e(t)}
- \deqn{Sig(t|t) = gr_r(Sigma(t|t-1) {(I - K(t) H)}^t, Gam_w {K(t)}^t}
+ \deqn{Sig(t|t) = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)}
  where x(t|t) is the estimated state vector at time t given the
  observations up to time t, P(t|t) is the estimated state covariance
  matrix at time t given the observations up to time t,

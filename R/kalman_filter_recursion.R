@@ -1,6 +1,9 @@
-#' kalman_filter_recursion.R
-#' @title Kalman Filter recursion
-#' @description Kalman Filter recursion.
+#' @title kalman_filter_recursion
+#'
+#' @description
+#' kalman_filter_recursion is the main function to implement
+#' the Kalman filter.
+#'
 #' @details The Kalman filter is a recursive algorithm for estimating
 #' the state of a linear dynamic system from a series of observed
 #' measurements.

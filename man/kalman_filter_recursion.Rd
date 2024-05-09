@@ -2,7 +2,7 @@
 % Please edit documentation in R/kalman_filter_recursion.R
 \name{kalman_filter_recursion}
 \alias{kalman_filter_recursion}
-\title{Kalman Filter recursion}
+\title{kalman_filter_recursion}
 \usage{
 kalman_filter_recursion(y, u, x0, P0, F, E, H, V, W)
 }
@@ -31,11 +31,10 @@ A list with the following components:
 \item{Pt}{The estimated state covariance matrix (\eqn{k \times k})}
 }
 \description{
-Kalman Filter recursion.
+kalman_filter_recursion is the main function to implement
+the Kalman Filter.
 }
 \details{
-kalman_filter_recursion.R
-
 The Kalman filter is a recursive algorithm for estimating
 the state of a linear dynamic system from a series of observed
 measurements.
