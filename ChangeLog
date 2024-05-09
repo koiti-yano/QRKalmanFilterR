@@ -1,0 +1,31 @@
+2024-04-29
+  qr_kalman_filter.R is added
+
+
+2024-04-28
+  qm.R is added
+https://www.sumsar.net/blog/2014/03/a-hack-to-create-matrices-in-r-matlab-style/
+
+12-01-2003
+	make new files:
+	  logLikelihood.R
+	  setting.R
+	  stateSpaceMatrices.R
+	  initStateVector.R
+	  initVarMatrix.R
+
+12-02-2003
+
+12-15-2003
+	I can get not so bad aicPortion below:
+	(1) return(ts.union(nttLogDiffTs, topixLogDiffTs))
+	in stockWeeklyRetrun.R
+	 - ii = 1                 # i th time series
+	 - kk = 1                 # the number of time series
+	 - pp = 2~4                # AR order
+
+	(2) return(ts.union(sonyLogDiffTs, topixLogDiffTs))
+	in stockWeeklyRetrun.R
+	 - ii = 1                 # i th time series
+	 - kk = 1                 # the number of time series
+	 - pp = 4~6                # AR order
