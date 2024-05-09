@@ -1,4 +1,8 @@
 # Compare the Kalman filter and QR Kalman filter on simulated data
+rm(list=ls())
+
+# https://stackoverflow.com/questions/13672720/r-command-for-setting-working-directory-to-source-file-location-in-rstudio
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 # https://www.sumsar.net/blog/2014/03/a-hack-to-create-matrices-in-r-matlab-style/
 source("../R/qm.R")
@@ -9,24 +13,24 @@ source("../R/fs.R")
 # The QR Kalman filter is implemented in qr_kalman_filter_recursion.R
 
 # Generate simulated data
+
 TT <- 100
-FF <- qm(0.4, 0.5 |
-         0.2, 0.2)
-EE <- qm(0, 0 |
-         0, 0)
-HH <- qm(1, 0 |
-         0, 1)
-VV <- qm(0.1, 0 |
-         0, 1)
-WW <- qm(0.1, 0 |
-         0,  0.1)
-x0 <- qm(0 |
-         0)
-P0 <- qm(1, 0 |
-         0, 1)
-uu <- array(0, c(2, TT))
-xx <- array(0, c(2, TT))
-yy <- array(0, c(2, TT))
+dt <- 0.1
+n <- 6
+m <- 6
+nu <- 3
+FF <- diag(n) + rbind(cbind(matrix(0, nrow = 3, ncol = 3), dt * diag(3)), matrix(0, nrow = 3, ncol = 6))
+EE <- rbind(0.5 * dt^2 * diag(3), dt * diag(3))
+HH <- diag(n)
+
+VV <- 0.1 * diag(n)
+WW <- 0.1 * diag(n)
+
+x0 <- array(0, c(6,1))
+P0 <- diag(n)
+uu <- array(0, c(nu, TT))
+xx <- array(0, c(n, TT))
+yy <- array(0, c(n, TT))
 xx[,1] <- x0
 
 Sig0 <- chol(P0)
@@ -36,9 +40,9 @@ Gm_w <- chol(WW)
 for (ii in 2:TT){
   # System equation
   xx[,ii] <- FF %*% xx[,ii-1, drop=F] + EE %*% uu[,ii-1, drop=F] +
-    VV %*% matrix(rnorm(2),c(2,1))
+    VV %*% matrix(rnorm(n),c(n,1))
   # Observation equation
-  yy[,ii] <- HH %*% xx[,ii, drop=F] + WW %*% matrix(rnorm(2),c(2,1))
+  yy[,ii] <- HH %*% xx[,ii, drop=F] + WW %*% matrix(rnorm(n),c(n,1))
 }
 
 # Run the Kalman filter on the simulated data
