@@ -1,6 +1,9 @@
+2024-05-08
+  qr_kalman_filter.R is modified
+  https://github.com/koiti-yano/QRKalmanFilterR　is created
+
 2024-04-29
   qr_kalman_filter.R is added
-
 
 2024-04-28
   qm.R is added
