@@ -24,7 +24,7 @@
 #'  \deqn{e(t) = y(t) - H x(t|t-1)}
 #'  \deqn{s(t) = H P(t|t-1) H^t + W}
 #'  Update step:
-#'  \deqn{K(t) = P(t|t-1) H^t s(t)^{-1}
+#'  \deqn{K(t) = P(t|t-1) H^t s(t)^{-1}}
 #'  \deqn{x(t|t) = x(t|t-1) + K(t) e(t)}
 #'  \deqn{P(t|t) = (I - K(t) H) P(t|t-1)}
 #'  where x(t|t) is the estimated state vector at time t given the observations up to time t,

@@ -12,31 +12,38 @@
 #' The Kalman filter is used to estimate the state vector
 #' x(t) given the observations y(t).
 #'
+#' The QR Kalman filter (square root Kalman Filter using only QR
+#' decompositions) is implemented using the following recursion:
+#' Prediction step:
+#'  \deqn{x(t|t-1) = F x(t-1|t-1) + E u(t)}
+#'  \deqn{Sig(t|t-1) = gr_r(Sigma(t-1|t-1) F^t, Gam_v)}
+#'  Innovation step:
+#'  \deqn{e(t) = y(t) - H x(t|t-1)}
+#'  \deqn{G(t) = gr_r(Sig(t|t-1) H^t, Gam_w)}
+#'  Update step:
+#'  \deqn{K(t) = {[G(t)^{-1} (G(t)^{-t}  H^t) {Sig(t|t-1)}^t Sig(t|t-1)]}^{-t}}
+#'  \deqn{x(t|t) = x(t|t-1) + K(t) e(t)}
+#'  \deqn{Sig(t|t) = gr_r(Sigma(t|t-1) {(I - K(t) H)}^t, Gam_w {K(t)}^t}
+#'  where x(t|t) is the estimated state vector at time t given the
+#'  observations up to time t, P(t|t) is the estimated state covariance
+#'  matrix at time t given the observations up to time t,
+#'  K(t) is the Kalman gain at time t,
+#' See Kitagawa, (2010), Introduction to Time Series Modeling, Chapman & Hall
+#' for more details.
+
 #' @param y The observation vector (\eqn{l \times 1})
 #' @param u The exogenous vector (\eqn{n \times 1})
 #' @param x0 The initial state vector (\eqn{k \times 1})
-#' @param Sig0 The initial state covariance matrix (\eqn{k \times k})
+#' @param Sig0 The square root of the initial state covariance matrix (\eqn{k \times k})
 #' @param F The state transition matrix (\eqn{k \times k})
 #' @param E The control matrix (\eqn{k \times n})
 #' @param H The observation matrix (\eqn{l \times k})
-#' @param Gm_v The state noise covariance matrix (\eqn{k \times k})
-#' @param Gm_w The observation noise covariance matrix (\eqn{l \times l})
+#' @param Gm_v The square root of the state noise covariance matrix (\eqn{k \times k})
+#' @param Gm_w The square root of the observation noise covariance matrix (\eqn{l \times l})
 #' @return A list with the following components:
-#' \item{xt}{The estimated state vector (\eqn{k \times 1})}
-#' \item{Pt}{The estimated state covariance matrix (\eqn{k \times k})}
+#' \item{x(t)}{The estimated state vector (\eqn{k \times 1})}
+#' \item{Sig(t)}{The square root of the estimated state covariance matrix (\eqn{k \times k})}
 #'
-#' @examples
-#' # Kalman filter example
-#' FF <- matrix(c(1, 1, 0, 1), 2, 2)
-#' EE <- matrix(c(0, 1), 2, 1)
-#' HH <- matrix(c(1, 0), 1, 2)
-#' QQ <- matrix(c(0.1, 0, 0, 0.1), 2, 2)
-#' RR <- matrix(0.1, 1, 1)
-#' x0 <- matrix(c(0, 0), 2, 1)
-#' V0 <- matrix(c(1, 0, 0, 1), 2, 2)
-#' u <- matrix(0, 1, 1)
-#' y <- matrix(c(1, 2), 2, 1)
-#' kalman_filter(y, u, FF, EE, HH, QQ, RR, x0, P0)
 #' @export
 
 qr_kalman_filter_recursion <- function(y, u = 0, x0, Sig0, F, E, H,

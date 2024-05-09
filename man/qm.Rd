@@ -10,10 +10,10 @@ qm(...)
 qm: quick matrix
 }
 \examples{
-# example code
 qm(1, 2 | 3, 4)
 qm(1, 2, 3 | 4, 5, 6 | 7, 8, 9)
 qm(1 | 2 | 3)
+
 
 }
 \author{

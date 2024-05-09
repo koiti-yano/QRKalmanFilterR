@@ -1,12 +1,12 @@
 #' qm: quick matrix
 #' @author Rasmus Bååth
+#' @importFrom utils tail
+#' @export
 #' @examples
-#' # example code
 #' qm(1, 2 | 3, 4)
 #' qm(1, 2, 3 | 4, 5, 6 | 7, 8, 9)
 #' qm(1 | 2 | 3)
 #'
-#' @export
 #'
 qm <- function(...) {
   # Get the arguments as a list
