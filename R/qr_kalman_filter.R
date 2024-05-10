@@ -1,11 +1,11 @@
 #' @title qr_kalman_filter
+#' @author Koichi (Koiti) Yano
 #' @docType package
 #' @title QR Kalman Filter
 #' @description Square root Kalman Filter using only QR decompositions.
 #' @details This package provides a square root Kalman filter implementation
 #' that uses only QR decompositions. This is a numerically stable way to
 #' implement the Kalman filter.
-#' @author Koichi (Koiti) Yano
 #' @export
 
 qr_r <- function(AA, BB) {
