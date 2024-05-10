@@ -1,5 +1,5 @@
 # QRKalmanFilterR
-An R implimentation of Square root Kalman Filter using only QR decompositions. All codes and documents are tentative. Any comments are welcome in discussion.
+An R implimentation of Square root Kalman Filter using only QR decompositions. Please be advised that all codes and documents are provisional as the project is currently in progress. Any comments are welcome in discussion.
 
 ## Installation
 ```R
