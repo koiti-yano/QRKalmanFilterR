@@ -1,4 +1,5 @@
-#' Kalman_filter
+#' @title kalman_filter
+#' @author Koichi (Koiti) Yano
 #' @export
 #'
 #'

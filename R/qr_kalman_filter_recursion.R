@@ -1,5 +1,5 @@
 #' @title qr_kalman_filter_recursion
-#'
+#' @author Koichi (Koiti) Yano
 #' @description
 #' qr_kalman_filter_recursion is the main function to implement
 #' the square root Kalman Filter using only QR decompositions.

@@ -1,4 +1,5 @@
 #' @title kalman_filter_recursion
+#' @author Koichi (Koiti) Yano
 #'
 #' @description
 #' kalman_filter_recursion is the main function to implement

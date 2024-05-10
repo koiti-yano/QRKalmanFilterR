@@ -1,4 +1,4 @@
-# qr_kalman_filter.R
+#' @title qr_kalman_filter
 #' @docType package
 #' @title QR Kalman Filter
 #' @description Square root Kalman Filter using only QR decompositions.
