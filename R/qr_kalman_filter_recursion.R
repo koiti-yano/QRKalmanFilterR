@@ -31,6 +31,7 @@
 #'  where \eqn{x(t|t)} is the estimated state vector,
 #'  \eqn{G(t)} is the square root of the estimated state covariance matrix,
 #'  and \eqn{K(t)} is the Kalman gain at time t.
+#'
 #'  See Tracy, (2022), "A Square-Root Kalman Filter Using Only QR
 #'  Decompositions," for more details.
 #'

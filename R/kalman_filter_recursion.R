@@ -33,6 +33,7 @@
 #'  where \eqn{x(t|t)} is the estimated state vector at,
 #'  \eqn{P(t)} is the estimated state covariance matrix,
 #'  and \eqn{K(t)} is the Kalman gain at time t.
+#'
 #'  See Kitagawa, (2010), Introduction to Time Series Modeling, Chapman & Hall
 #' for more details.
 #'

@@ -58,9 +58,10 @@ Prediction step:
  \deqn{K(t) = {[G(t)^{-1} (G(t)^{-t}  H^t) { \Sigma (t|t-1)}^t \Sigma(t|t-1)]}^{t}}
  \deqn{x(t|t) = x(t|t-1) + K(t) e(t)}
  \deqn{\Sigma(t|t) = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)}
- where \eqn{x(t|t)} is the estimated state vector at,
+ where \eqn{x(t|t)} is the estimated state vector,
  \eqn{G(t)} is the square root of the estimated state covariance matrix,
  and \eqn{K(t)} is the Kalman gain at time t.
+
  See Tracy, (2022), "A Square-Root Kalman Filter Using Only QR
-Decompositions," for more details.
+ Decompositions," for more details.
 }
