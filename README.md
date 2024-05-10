@@ -1,7 +1,8 @@
 # QRKalmanFilterR
 An R implimentation of Square root Kalman Filter using only QR decompositions. All codes and documents are tentative. Any comments are welcome in discussion.
 
-`# install.packages("devtools")\n th`
+`# install.packages("devtools")  
+th`
 `devtools::install_github("koiti-yano/QRKalmanFilterR", upgrade="never")`
 
 # References
