@@ -61,11 +61,9 @@ Prediction step:
  \deqn{K(t) = P(t|t-1) H^t s(t)^{-1}}
  \deqn{x(t|t) = x(t|t-1) + K(t) e(t)}
  \deqn{P(t|t) = (I - K(t) H) P(t|t-1)}
- where \eqn{x(t|t)} is the estimated state vector at time t given
- the observations up to time t,
- \eqn{P(t|t)} is the estimated state covariance matrix
- at time t given the observations up to time t,
- \eqn{K(t)} is the Kalman gain at time t,
-See Kitagawa, (2010), Introduction to Time Series Modeling, Chapman & Hall
+ where \eqn{x(t|t)} is the estimated state vector at,
+ \eqn{P(t)} is the estimated state covariance matrix,
+ and \eqn{K(t)} is the Kalman gain at time t.
+ See Kitagawa, (2010), Introduction to Time Series Modeling, Chapman & Hall
 for more details.
 }
