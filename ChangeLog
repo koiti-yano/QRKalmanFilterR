@@ -9,6 +9,9 @@
   qm.R is added
 https://www.sumsar.net/blog/2014/03/a-hack-to-create-matrices-in-r-matlab-style/
 
+The following content is a past change log. I am keeping it as a personal memo for my records."
+=========================================
+
 12-01-2003
 	make new files:
 	  logLikelihood.R
