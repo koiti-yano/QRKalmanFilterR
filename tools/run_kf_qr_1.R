@@ -1,12 +1,8 @@
 # Compare the Kalman filter and QR Kalman filter on simulated data
 
 # https://stackoverflow.com/questions/13672720/r-command-for-setting-working-directory-to-source-file-location-in-rstudio
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+#setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
-# https://www.sumsar.net/blog/2014/03/a-hack-to-create-matrices-in-r-matlab-style/
-source("../R/qm.R")
-source("../R/bs.R")
-source("../R/fs.R")
 # This script runs the QR/plain-vanilla Kalman filter on the simulated data.
 # The Kalman filter is implemented in kalman_filter_recursion.R
 # The QR Kalman filter is implemented in qr_kalman_filter_recursion.R

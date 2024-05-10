@@ -1,7 +1,5 @@
 #' @title qr_kalman_filter
 #' @author Koichi (Koiti) Yano
-#' @docType package
-#' @title QR Kalman Filter
 #' @description Square root Kalman Filter using only QR decompositions.
 #' @details This package provides a square root Kalman filter implementation
 #' that uses only QR decompositions. This is a numerically stable way to
@@ -60,6 +58,9 @@ qr_kf_innovation <- function(yy, xx, Sig, HH, Gm_w, ee, GG) {
 qr_kf_update <- function(xx, Sig, HH, ee, GG, II) {
 
   #browser()
+  source("../R/bs.R")
+  source("../R/fs.R")
+
   # update
   KK <- t(bs(GG) %*% (fs(t(GG))%*%HH) %*% t(Sig) %*% Sig)
   xx <- xx + KK %*% ee
