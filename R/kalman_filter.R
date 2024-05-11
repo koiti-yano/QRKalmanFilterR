@@ -1,3 +1,25 @@
+#' @title kalman_filter
+#' @author Koichi (Koiti) Yano
+#' @export
+kalman_filter <- function(yy, uu = 0, xx, PP, ss, ee,
+                          FF, EE = 0, HH, VV, WW, KK) {
+
+  #browser()
+  # Compute the prediction
+  kp <- kalman_prediction(xx, PP, uu, FF, EE, VV)
+  xx <- kp$xx; PP <- kp$PP
+
+  # Compute the innovation
+  ki <- kalman_innovation(yy, xx, PP, HH, WW)
+  ee <- ki$ee; ss <- ki$ss
+
+  # Compute the update
+  ku <- kalman_update(xx, PP, HH, ee, ss, KK)
+  xx <- ku$xx; PP <- ku$PP
+
+  return(list(xx = xx, PP = PP))
+}
+
 #' kalman_prediction
 #' @export
 kalman_prediction <- function(xx, PP, uu, FF, EE, VV) {
@@ -33,24 +55,3 @@ kalman_update <- function(xx, PP, HH, ee, ss, KK){
   return(list(xx = xx, PP = PP))
 }
 
-#' @title kalman_filter
-#' @author Koichi (Koiti) Yano
-#' @export
-kalman_filter <- function(yy, uu = 0, xx, PP, ss, ee,
-                          FF, EE = 0, HH, VV, WW, KK) {
-
-  #browser()
-  # Compute the prediction
-  kp <- kalman_prediction(xx, PP, uu, FF, EE, VV)
-  xx <- kp$xx; PP <- kp$PP
-
-  # Compute the innovation
-  ki <- kalman_innovation(yy, xx, PP, HH, WW)
-  ee <- ki$ee; ss <- ki$ss
-
-  # Compute the update
-  ku <- kalman_update(xx, PP, HH, ee, ss, KK)
-  xx <- ku$xx; PP <- ku$PP
-
-  return(list(xx = xx, PP = PP))
-}
