@@ -25,6 +25,7 @@ kalman_filter <- function(yy, uu = 0, xx, PP, ss, ee,
 
 
 #' kalman_prediction
+#' @export
 kalman_prediction <- function(xx, PP, uu, FF, EE, VV) {
 
     # Compute the prediction
@@ -35,6 +36,7 @@ kalman_prediction <- function(xx, PP, uu, FF, EE, VV) {
   }
 
 #' kalman_innovation
+#' @export
 kalman_innovation <- function(yy, xx, PP, HH, WW) {
 
   #browser()
@@ -46,6 +48,7 @@ kalman_innovation <- function(yy, xx, PP, HH, WW) {
 }
 
 #' kalman_update
+#' @export
 kalman_update <- function(xx, PP, HH, ee, ss, KK){
 
   # Compute the update

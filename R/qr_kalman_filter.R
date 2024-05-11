@@ -6,6 +6,8 @@
 #' implement the Kalman filter.
 #' @export
 
+#' qr_r
+#' @export
 qr_r <- function(AA, BB) {
 
   # QR decomposition of matrix A where only the upper triangular R is returned
@@ -13,6 +15,7 @@ qr_r <- function(AA, BB) {
 
 }
 
+#' @export
 qr_kalman_filter <- function(yy, uu = 0, xx, Sig, FF, EE = 0, HH,
                              Gm_v, Gm_w, GG=GG, ee=ee, II=II) {
 
@@ -33,6 +36,7 @@ qr_kalman_filter <- function(yy, uu = 0, xx, Sig, FF, EE = 0, HH,
 }
 
 #' qr_kalman_prediction
+#' @export
 qr_kf_prediction <- function(xx, Sig, uu, FF, EE, Gm_v) {
 
   #browser()
@@ -44,6 +48,7 @@ qr_kf_prediction <- function(xx, Sig, uu, FF, EE, Gm_v) {
 }
 
 #' qr_kalman_innovation
+#' @export
 qr_kf_innovation <- function(yy, xx, Sig, HH, Gm_w, ee, GG) {
 
   #browser()
@@ -55,6 +60,7 @@ qr_kf_innovation <- function(yy, xx, Sig, HH, Gm_w, ee, GG) {
 }
 
 #' qr_kalman_update
+#' @export
 qr_kf_update <- function(xx, Sig, HH, ee, GG, II) {
 
   #browser()
