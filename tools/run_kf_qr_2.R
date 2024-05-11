@@ -7,8 +7,10 @@
 # The Kalman filter is implemented in kalman_filter_recursion.R
 # The QR Kalman filter is implemented in qr_kalman_filter_recursion.R
 
+# Load QRKalmanFilterR
+require(QRKalmanFilterR)
+
 # https://www.sumsar.net/blog/2014/03/a-hack-to-create-matrices-in-r-matlab-style/
-source("../R/qm.R")
 # Generate simulated data
 TT <- 100
 FF <- qm(0.4, 0.5 |

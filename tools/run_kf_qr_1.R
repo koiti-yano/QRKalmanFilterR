@@ -7,6 +7,9 @@
 # The Kalman filter is implemented in kalman_filter_recursion.R
 # The QR Kalman filter is implemented in qr_kalman_filter_recursion.R
 
+# Load QRKalmanFilterR
+require(QRKalmanFilterR)
+
 # Generate simulated data
 
 TT <- 100
@@ -41,13 +44,12 @@ for (ii in 2:TT){
 }
 
 # Run the Kalman filter on the simulated data
-source("../R/kalman_filter_recursion.R")
+
 kfr <- kalman_filter_recursion(y=yy, u=uu, x0=x0, P0=P0,
                                F=FF, E=EE, H=HH,
                                V=VV, W=WW)
 
 # Run the QR Kalman filter on the simulated data
-source("../R/qr_kalman_filter_recursion.R")
 qrkfr <- qr_kalman_filter_recursion(y=yy, u=uu, x0=x0, Sig0=Sig0,
                                   F=FF, E=EE, H=HH,
                                   Gm_v=Gm_v, Gm_w=Gm_w)
