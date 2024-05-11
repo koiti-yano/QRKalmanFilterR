@@ -1,7 +1,8 @@
 # Compare the Kalman filter and QR Kalman filter on simulated data
 
 # https://stackoverflow.com/questions/13672720/r-command-for-setting-working-directory-to-source-file-location-in-rstudio
-#setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# Rstudio: Set the working directory to the location of the current script
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 # This script runs the QR/plain-vanilla Kalman filter on the simulated data.
 # The Kalman filter is implemented in kalman_filter_recursion.R
