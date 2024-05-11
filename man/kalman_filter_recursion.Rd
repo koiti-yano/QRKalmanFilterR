@@ -68,3 +68,6 @@ Prediction step:
  See Kitagawa, (2010), Introduction to Time Series Modeling, Chapman & Hall
 for more details.
 }
+\author{
+Koichi (Koiti) Yano
+}

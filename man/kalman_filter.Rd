@@ -2,10 +2,13 @@
 % Please edit documentation in R/kalman_filter.R
 \name{kalman_filter}
 \alias{kalman_filter}
-\title{Kalman_filter}
+\title{kalman_filter}
 \usage{
 kalman_filter(yy, uu = 0, xx, PP, ss, ee, FF, EE = 0, HH, VV, WW, KK)
 }
 \description{
-Kalman_filter
+kalman_filter
+}
+\author{
+Koichi (Koiti) Yano
 }

@@ -65,3 +65,6 @@ Prediction step:
  See Tracy, (2022), "A Square-Root Kalman Filter Using Only QR
  Decompositions," for more details.
 }
+\author{
+Koichi (Koiti) Yano
+}

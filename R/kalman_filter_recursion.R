@@ -74,9 +74,9 @@ kalman_filter_recursion <- function(y, u, x0, P0, F, E, H,
   ss <- array(0, c(dim(HH)[1], dim(HH)[1]))
   KK <- array(0, c(dim(FF)[1], dim(HH)[1]))
 
+  # Iterate kalman_filter
   for (ii in 1:(TT)){
 #    print(ii)
-    # Iterate kalman_filter
     kf <- kalman_filter(yy=yy[,ii,drop=F], uu=uu[,ii, drop=F], xx=xx,
                          PP=PP, ss=ss, ee=ee,
                          FF=FF, EE=EE, HH=HH, VV=VV, WW=WW, KK)
