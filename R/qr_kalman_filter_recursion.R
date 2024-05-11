@@ -52,7 +52,6 @@
 
 qr_kalman_filter_recursion <- function(y, u = 0, x0, Sig0, F, E, H,
                                        Gm_v, Gm_w) {
-  source("../R/qr_kalman_filter.R") # Need to improve this line
   yy <- y # variable traceability
   uu <- u # variable traceability
   FF <- F # variable traceability

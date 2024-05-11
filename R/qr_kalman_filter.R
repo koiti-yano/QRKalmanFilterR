@@ -58,8 +58,6 @@ qr_kf_innovation <- function(yy, xx, Sig, HH, Gm_w, ee, GG) {
 qr_kf_update <- function(xx, Sig, HH, ee, GG, II) {
 
   #browser()
-  source("../R/bs.R")
-  source("../R/fs.R")
 
   # update
   KK <- t(bs(GG) %*% (fs(t(GG))%*%HH) %*% t(Sig) %*% Sig)
