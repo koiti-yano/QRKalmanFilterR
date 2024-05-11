@@ -1,5 +1,5 @@
 #' qm: quick matrix
-#' @author Rasmus Bååth
+#' @author Rasmus B奪奪th
 #' @importFrom utils tail
 #' @export
 #' @examples
