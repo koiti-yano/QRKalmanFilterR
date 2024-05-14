@@ -47,9 +47,9 @@ The Kalman filter is implemented using the following recursion:
 
 where $x_{t|t}$ is the estimated state vector at, $P_t$ is the estimated state covariance matrix, and $K_t$ is the Kalman gain at time t. See Kitagawa, (2010) for more details.
 
-### The square root Kalman filter
+### The square root Kalman filter using only QR decompositions
 
-The square root Kalman filter is an alternative to the Kalman filter that is numerically more stable. The square root Kalman filter is implemented using the following recursion. Tracy (2022) proposes the following recursion for the square root Kalman filter only using QR decompositions (The QR Kalman filter).
+The square root Kalman filter is an alternative to the Kalman filter that is numerically more stable. The square root Kalman filter is implemented using the following recursion. Tracy (2022) proposes the following recursion for the square root Kalman filter using only QR decompositions (The QR Kalman filter).
 
 The QR Kalman filter is implemented using the following recursion
 
