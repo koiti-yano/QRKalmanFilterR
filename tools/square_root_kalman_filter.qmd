@@ -1,7 +1,7 @@
 ---
 title: "The Kalman filter and the square root Kalman filter"
 author: "Koichi (Koiti) Yano"
-format: html
+format: pdf
 editor: visual
 ---
 
