@@ -180,11 +180,11 @@ x_t=Fx_{t-1} + E u_t + w_t
 <li><p>Innovation step:</p>
 <ol type="1">
 <li><p><span class="math inline">\(e_t = y_t - H x_{t|t-1}\)</span></p></li>
-<li><p>$G_t = gr_r(_{t|t-1} H^t, _w) $</p></li>
+<li><p><span class="math inline">\(G_t gr_r (\Sigma_{t|t-1} H^t, \Gamma_w)\)</span></p></li>
 </ol></li>
 <li><p>Update step:</p>
 <ol type="1">
-<li><p><span class="math inline">\(K_t\)</span></p></li>
+<li><p><span class="math inline">\(K_t={[G_t^{-1} (G_t^{-t} H) {\Sigma_{t|t-1}}^t(\Sigma_{t|t-1})]}^t\)</span></p></li>
 <li><p><span class="math inline">\(x_{t|t} = x_{t|t-1} + K_t e_t\)</span></p></li>
 <li><p><span class="math inline">\(\Sigma(t|t) = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)\)</span></p></li>
 </ol></li>

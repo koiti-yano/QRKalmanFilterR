@@ -1,7 +1,7 @@
 ---
 title: "The Kalman filter and the square root Kalman filter"
 author: "Koichi (Koiti) Yano"
-format: html
+format: pdf
 editor: visual
 ---
 
@@ -45,7 +45,7 @@ The Kalman filter is implemented using the following recursion:
 
     3.  $P_{t|t} = (I - K_t H) P_{t|t-1}$
 
-where $x_{t|t}$ is the estimated state vector at, $P_t$ is the estimated state covariance matrix,  and $K_t$ is the Kalman gain at time t. See Kitagawa, (2010) for more details.
+where $x_{t|t}$ is the estimated state vector at, $P_t$ is the estimated state covariance matrix, and $K_t$ is the Kalman gain at time t. See Kitagawa, (2010) for more details.
 
 ### The square root Kalman filter
 
@@ -63,17 +63,15 @@ The QR Kalman filter is implemented using the following recursion
 
     1.  $e_t = y_t - H x_{t|t-1}$
 
-    2.  \$G_t = gr_r(\Sigma\_{t\|t-1} H\^t, \Gamma\_w) \$
+    2.  $G_t = gr_r (\Sigma_{t|t-1} H^t, \Gamma_w)$
 
 3.  Update step:
 
-    1.  $K_t$
+    1.  $K_t={[G_t^{-1} (G_t^{-t} H) {\Sigma_{t|t-1}}^t(\Sigma_{t|t-1})]}^t$
 
     2.  $x_{t|t} = x_{t|t-1} + K_t e_t$
 
-    3.  $\Sigma(t|t) = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)$
-
-
+    3.  $\Sigma_{t|t} = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)$
 
 ## Running Code
 
