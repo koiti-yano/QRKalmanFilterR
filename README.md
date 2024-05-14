@@ -9,8 +9,11 @@ devtools::install_github("koiti-yano/QRKalmanFilterR", upgrade="never")
 
 ## Examples
 
-See "run_kf_qr_1.R" and "run_kf_qr_2.R" in "tools/"
+See "run_kf_qr_1.R" and "run_kf_qr_2.R" in "tools/".
 
+## Documents
+
+See PDFs in "tools/".
 
 ## References
 Kitagawa, Genshiro, (2010), Introduction to Time Series Modeling, Chapman & Hall.
