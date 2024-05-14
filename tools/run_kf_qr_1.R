@@ -13,7 +13,7 @@ require(QRKalmanFilterR)
 
 # Generate simulated data
 
-TT <- 100
+TT <- 50
 dt <- 0.1
 n <- 6
 m <- 6
@@ -56,7 +56,7 @@ qrkfr <- qr_kalman_filter_recursion(y=yy, u=uu, x0=x0, Sig0=Sig0,
                                   Gm_v=Gm_v, Gm_w=Gm_w)
 if(1){
   # Plot the results
-  par(mfrow=c(1,2))
+  par(mfrow=c(1,1))
   plot(xx[1,], type="l", xlab="Time", ylab="State 1", col="black")
   lines(kfr$xx_stored[1,], type="l", col="red",lwd=1.5)
   lines(qrkfr$xx_stored[1,], type="l", col="blue",lwd=1.5)
