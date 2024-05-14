@@ -5,6 +5,7 @@ format: pdf
 editor: visual
 ---
 
+
 ## Introduction
 In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions. The Kalman filter is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter is an alternative to the Kalman filter, which is proposed by Tracy (2022). The square root Kalman filter is numerically more stable than the Kalman filter. 
 
@@ -79,15 +80,38 @@ The QR Kalman filter is implemented using the following recursion
 
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
-```{r}
+
+::: {.cell}
+
+```{.r .cell-code}
 1 + 1
 ```
 
-You can add options to executable code like this
+::: {.cell-output .cell-output-stdout}
 
-```{r}
-#| echo: false
-2 * 2
+```
+[1] 2
 ```
 
+
+:::
+:::
+
+
+You can add options to executable code like this
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] 4
+```
+
+
+:::
+:::
+
+
 The `echo: false` option disables the printing of code (only output is displayed).
+
