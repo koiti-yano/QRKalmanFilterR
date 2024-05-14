@@ -134,6 +134,11 @@ window.Quarto = {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+</section>
+<section id="the-kalman-filter-and-the-square-root-kalman-filter" class="level2">
+<h2 class="anchored" data-anchor-id="the-kalman-filter-and-the-square-root-kalman-filter">The Kalman filter and the square root Kalman filter</h2>
+<section id="a-linear-gaussian-state-space-model" class="level3">
+<h3 class="anchored" data-anchor-id="a-linear-gaussian-state-space-model">A linear Gaussian state space model</h3>
 <p>A linear Gaussian state space model is defined by the following two equations.</p>
 <p><span class="math display">\[
 x_t=Fx_{t-1} + E u_t + w_t
@@ -160,7 +165,31 @@ x_t=Fx_{t-1} + E u_t + w_t
 <li><p><span class="math inline">\(P_{t|t} = (I - K_t H) P_{t|t-1}\)</span></p></li>
 </ol></li>
 </ol>
-<p>where is the estimated state vector at, #’ is the estimated state covariance matrix, #’ and is the Kalman gain at time t.</p>
+<p>where <span class="math inline">\(x_{t|t}\)</span> is the estimated state vector at, <span class="math inline">\(P_t\)</span> is the estimated state covariance matrix, and <span class="math inline">\(K_t\)</span> is the Kalman gain at time t. See Kitagawa, (2010) for more details.</p>
+</section>
+<section id="the-square-root-kalman-filter" class="level3">
+<h3 class="anchored" data-anchor-id="the-square-root-kalman-filter">The square root Kalman filter</h3>
+<p>The square root Kalman filter is an alternative to the Kalman filter that is numerically more stable. The square root Kalman filter is implemented using the following recursion. Tracy (2022) proposes the following recursion for the square root Kalman filter only using QR decompositions (The QR Kalman filter).</p>
+<p>The QR Kalman filter is implemented using the following recursion</p>
+<ol type="1">
+<li><p>Prediction step</p>
+<ol type="1">
+<li><p><span class="math inline">\(x_{t|t-1} = F x_{t-1|t-1} + E u_t\)</span></p></li>
+<li><p><span class="math inline">\(\Sigma_{t|t-1} = gr_r(\Sigma_{t-1|t-1} F^t, \Gamma_v)\)</span></p></li>
+</ol></li>
+<li><p>Innovation step:</p>
+<ol type="1">
+<li><p><span class="math inline">\(e_t = y_t - H x_{t|t-1}\)</span></p></li>
+<li><p>$G_t = gr_r(_{t|t-1} H^t, _w) $</p></li>
+</ol></li>
+<li><p>Update step:</p>
+<ol type="1">
+<li><p><span class="math inline">\(K_t\)</span></p></li>
+<li><p><span class="math inline">\(x_{t|t} = x_{t|t-1} + K_t e_t\)</span></p></li>
+<li><p><span class="math inline">\(\Sigma(t|t) = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)\)</span></p></li>
+</ol></li>
+</ol>
+</section>
 </section>
 <section id="running-code" class="level2">
 <h2 class="anchored" data-anchor-id="running-code">Running Code</h2>

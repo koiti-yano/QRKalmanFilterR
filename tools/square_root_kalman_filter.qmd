@@ -1,11 +1,15 @@
 ---
 title: "The Kalman filter and the square root Kalman filter"
 author: "Koichi (Koiti) Yano"
-format: pdf
+format: html
 editor: visual
 ---
 
 ## Introduction
+
+## The Kalman filter and the square root Kalman filter
+
+### A linear Gaussian state space model
 
 A linear Gaussian state space model is defined by the following two equations.
 
@@ -41,7 +45,35 @@ The Kalman filter is implemented using the following recursion:
 
     3.  $P_{t|t} = (I - K_t H) P_{t|t-1}$
 
-where \eqn{x(t|t)} is the estimated state vector at, \#' \eqn{P(t)} is the estimated state covariance matrix, \#' and \eqn{K(t)} is the Kalman gain at time t.
+where $x_{t|t}$ is the estimated state vector at, $P_t$ is the estimated state covariance matrix,  and $K_t$ is the Kalman gain at time t. See Kitagawa, (2010) for more details.
+
+### The square root Kalman filter
+
+The square root Kalman filter is an alternative to the Kalman filter that is numerically more stable. The square root Kalman filter is implemented using the following recursion. Tracy (2022) proposes the following recursion for the square root Kalman filter only using QR decompositions (The QR Kalman filter).
+
+The QR Kalman filter is implemented using the following recursion
+
+1.  Prediction step
+
+    1.  $x_{t|t-1} = F x_{t-1|t-1} + E u_t$
+
+    2.  $\Sigma_{t|t-1} = gr_r(\Sigma_{t-1|t-1} F^t, \Gamma_v)$
+
+2.  Innovation step:
+
+    1.  $e_t = y_t - H x_{t|t-1}$
+
+    2.  \$G_t = gr_r(\Sigma\_{t\|t-1} H\^t, \Gamma\_w) \$
+
+3.  Update step:
+
+    1.  $K_t$
+
+    2.  $x_{t|t} = x_{t|t-1} + K_t e_t$
+
+    3.  $\Sigma(t|t) = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)$
+
+
 
 ## Running Code
 
