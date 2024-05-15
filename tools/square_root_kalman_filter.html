@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Koichi (Koiti) Yano">
+<meta name="author" content="Koichi (Koiti) Yano (koiti.yano@ymail.ne.jp)">
 
 <title>The Kalman filter and the square root Kalman filter using only QR decompositions</title>
 <style>
@@ -119,7 +119,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Koichi (Koiti) Yano </p>
+             <p>Koichi (Koiti) Yano (koiti.yano@ymail.ne.jp) </p>
           </div>
   </div>
     
@@ -146,7 +146,10 @@ x_t=Fx_{t-1} + E u_t + w_t
 \]</span></p>
 <p>and</p>
 <p><span class="math display">\[y_t=Hx_t+v_t,\]</span></p>
-<p>where <span class="math inline">\(x_t\)</span> is the <span class="math inline">\((k \times 1)\)</span> state vector , <span class="math inline">\(y_t\)</span> is the <span class="math inline">\((l \times 1)\)</span> observation vector, <span class="math inline">\(u_t\)</span> is the <span class="math inline">\((n \times 1)\)</span> exogenous vector, <span class="math inline">\(v_t\)</span> is the <span class="math inline">\((k \times 1)\)</span> state noise, <span class="math inline">\(w(t)\)</span> is the <span class="math inline">\((l \times 1)\)</span> observation noise, <span class="math inline">\(t\)</span> is a time index. The matrices <span class="math inline">\(F\)</span>, <span class="math inline">\(E\)</span>, and <span class="math inline">\(H\)</span> are <span class="math inline">\((k \times k)\)</span>, <span class="math inline">\((k \times n)\)</span>, and <span class="math inline">\((l \times k)\)</span>, respectively. The two innocations <span class="math inline">\(w_t\)</span> and <span class="math inline">\(v_t\)</span> are sampled from <span class="math inline">\(N(0, W)\)</span> and <span class="math inline">\(N(0,V)\)</span>, where <span class="math inline">\(W\)</span> is a <span class="math inline">\((k \times k)\)</span> covariance matrix and <span class="math inline">\(V\)</span> is an <span class="math inline">\((l \times l)\)</span> covariance matrix. The Kalman Filter is used to estimate the state vector <span class="math inline">\(x_t\)</span> given the observations <span class="math inline">\(y_t\)</span>.</p>
+<p>where <span class="math inline">\(x_t\)</span> is the <span class="math inline">\((k \times 1)\)</span> state vector , <span class="math inline">\(y_t\)</span> is the <span class="math inline">\((l \times 1)\)</span> observation vector, <span class="math inline">\(u_t\)</span> is the <span class="math inline">\((n \times 1)\)</span> exogenous vector, <span class="math inline">\(v_t\)</span> is the <span class="math inline">\((k \times 1)\)</span> state noise, <span class="math inline">\(w(t)\)</span> is the <span class="math inline">\((l \times 1)\)</span> observation noise, <span class="math inline">\(t\)</span> is a time index. The matrices <span class="math inline">\(F\)</span>, <span class="math inline">\(E\)</span>, and <span class="math inline">\(H\)</span> are <span class="math inline">\((k \times k)\)</span>, <span class="math inline">\((k \times n)\)</span>, and <span class="math inline">\((l \times k)\)</span>, respectively. The system noise <span class="math inline">\(w_t\)</span> and the observation noise <span class="math inline">\(v_t\)</span> are sampled from <span class="math inline">\(N(0, W)\)</span> and <span class="math inline">\(N(0,V)\)</span>, respectively, where <span class="math inline">\(W\)</span> is a <span class="math inline">\((k \times k)\)</span> covariance matrix and <span class="math inline">\(V\)</span> is an <span class="math inline">\((l \times l)\)</span> covariance matrix. The Kalman Filter is used to estimate the state vector <span class="math inline">\(x_t\)</span> given the observations <span class="math inline">\(y_t\)</span>.</p>
+</section>
+<section id="the-kalman-filter" class="level3">
+<h3 class="anchored" data-anchor-id="the-kalman-filter">The Kalman filter</h3>
 <p>The Kalman filter is implemented using the following recursion:</p>
 <ol type="1">
 <li><p>Prediction step:</p>
@@ -195,7 +198,7 @@ x_t=Fx_{t-1} + E u_t + w_t
 </section>
 <section id="running-code" class="level2">
 <h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<p><strong>To be added: </strong> When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
