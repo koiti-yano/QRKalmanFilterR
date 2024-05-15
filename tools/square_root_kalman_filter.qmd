@@ -23,7 +23,9 @@ and
 
 $$y_t=Hx_t+v_t,$$
 
-where $x_t$ is the $(k \times 1)$ state vector , $y_t$ is the $(l \times 1)$ observation vector, $u_t$ is the $(n \times 1)$ exogenous vector, $v_t$ is the $(k \times 1)$ state noise, $w(t)$ is the $(l \times 1)$ observation noise, $t$ is a time index. The matrices $F$, $E$, and $H$ are $(k \times k)$, $(k \times n)$, and $(l \times k)$, respectively. The two innocations $w_t$ and $v_t$ are sampled from $N(0, W)$ and $N(0,V)$, where $W$ is a $(k \times k)$ covariance matrix and $V$ is an $(l \times l)$ covariance matrix. The Kalman Filter is used to estimate the state vector $x_t$ given the observations $y_t$.
+where $x_t$ is the $(k \times 1)$ state vector , $y_t$ is the $(l \times 1)$ observation vector, $u_t$ is the $(n \times 1)$ exogenous vector, $v_t$ is the $(k \times 1)$ state noise, $w(t)$ is the $(l \times 1)$ observation noise, $t$ is a time index. The matrices $F$, $E$, and $H$ are $(k \times k)$, $(k \times n)$, and $(l \times k)$, respectively. The system noise $w_t$ and the observation noise $v_t$ are sampled from $N(0, W)$ and $N(0,V)$, respectively, where $W$ is a $(k \times k)$ covariance matrix and $V$ is an $(l \times l)$ covariance matrix. The Kalman Filter is used to estimate the state vector $x_t$ given the observations $y_t$.
+
+### The Kalman filter
 
 The Kalman filter is implemented using the following recursion:
 
