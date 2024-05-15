@@ -75,7 +75,7 @@ The QR Kalman filter is implemented using the following recursion
 
     3.  $\Sigma_{t|t} = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t),$
 
-where .
+where $\Sigma_{t|t}=\sqrt{P_{t|t}}$. The function $gr_r$ is the QR decomposition of the matrix. The matrices $\Gamma_v$ and $\Gamma_w$ are the Cholesky decompositions of the covariance matrices of the state noise and the observation noise, respectively. See Tracy (2022) for more details.
 
 ## Running Code
 

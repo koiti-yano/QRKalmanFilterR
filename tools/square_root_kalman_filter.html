@@ -166,7 +166,7 @@ x_t=Fx_{t-1} + E u_t + w_t
 <li><p><span class="math inline">\(P_{t|t} = (I - K_t H) P_{t|t-1}\)</span></p></li>
 </ol></li>
 </ol>
-<p>where <span class="math inline">\(x_{t|t}\)</span> is the estimated state vector at, <span class="math inline">\(P_t\)</span> is the estimated state covariance matrix, and <span class="math inline">\(K_t\)</span> is the Kalman gain at time t. See Kitagawa, (2010) for more details.</p>
+<p>where <span class="math inline">\(x_{t|t}\)</span> is the estimated state vector at, <span class="math inline">\(P_{t|t}\)</span> is the estimated state covariance matrix, and <span class="math inline">\(K_t\)</span> is the Kalman gain at time t. See Kitagawa, (2010) for more details.</p>
 </section>
 <section id="the-square-root-kalman-filter-using-only-qr-decompositions" class="level3">
 <h3 class="anchored" data-anchor-id="the-square-root-kalman-filter-using-only-qr-decompositions">The square root Kalman filter using only QR decompositions</h3>
@@ -187,9 +187,10 @@ x_t=Fx_{t-1} + E u_t + w_t
 <ol type="1">
 <li><p><span class="math inline">\(K_t={[G_t^{-1} (G_t^{-t} H) {\Sigma_{t|t-1}}^t(\Sigma_{t|t-1})]}^t\)</span></p></li>
 <li><p><span class="math inline">\(x_{t|t} = x_{t|t-1} + K_t e_t\)</span></p></li>
-<li><p><span class="math inline">\(\Sigma_{t|t} = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t)\)</span></p></li>
+<li><p><span class="math inline">\(\Sigma_{t|t} = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t),\)</span></p></li>
 </ol></li>
 </ol>
+<p>where <span class="math inline">\(\Sigma_{t|t}=\sqrt{P_{t|t}}\)</span>. The function <span class="math inline">\(gr_r\)</span> is the QR decomposition of the matrix. The matrices <span class="math inline">\(\Gamma_v\)</span> and <span class="math inline">\(\Gamma_w\)</span> are the Cholesky decompositions of the covariance matrices of the state noise and the observation noise, respectively. See Tracy (2022) for more details.</p>
 </section>
 </section>
 <section id="running-code" class="level2">
