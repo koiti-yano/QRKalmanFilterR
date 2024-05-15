@@ -47,7 +47,7 @@ The Kalman filter is implemented using the following recursion:
 
     3.  $P_{t|t} = (I - K_t H) P_{t|t-1}$
 
-where $x_{t|t}$ is the estimated state vector at, $P_t$ is the estimated state covariance matrix, and $K_t$ is the Kalman gain at time t. See Kitagawa, (2010) for more details.
+where $x_{t|t}$ is the estimated state vector at, $P_{t|t}$ is the estimated state covariance matrix, and $K_t$ is the Kalman gain at time t. See Kitagawa, (2010) for more details.
 
 ### The square root Kalman filter using only QR decompositions
 
