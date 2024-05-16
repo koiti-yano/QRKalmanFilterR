@@ -140,13 +140,18 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="the-kalman-filter-and-the-square-root-kalman-filter-using-only-qr-decompositions">The Kalman filter and the square root Kalman filter using only QR decompositions</h2>
 <section id="a-linear-gaussian-state-space-model" class="level3">
 <h3 class="anchored" data-anchor-id="a-linear-gaussian-state-space-model">A linear Gaussian state space model</h3>
-<p>A linear Gaussian state space model is defined by the following two equations.</p>
+<p>A (invariant) linear Gaussian state space model is defined by the following two equations.</p>
 <p><span class="math display">\[
 x_t=Fx_{t-1} + E u_t + w_t
 \]</span></p>
 <p>and</p>
 <p><span class="math display">\[y_t=Hx_t+v_t,\]</span></p>
 <p>where <span class="math inline">\(x_t\)</span> is the <span class="math inline">\((k \times 1)\)</span> state vector , <span class="math inline">\(y_t\)</span> is the <span class="math inline">\((l \times 1)\)</span> observation vector, <span class="math inline">\(u_t\)</span> is the <span class="math inline">\((n \times 1)\)</span> exogenous vector, <span class="math inline">\(v_t\)</span> is the <span class="math inline">\((k \times 1)\)</span> state noise, <span class="math inline">\(w(t)\)</span> is the <span class="math inline">\((l \times 1)\)</span> observation noise, <span class="math inline">\(t\)</span> is a time index. The matrices <span class="math inline">\(F\)</span>, <span class="math inline">\(E\)</span>, and <span class="math inline">\(H\)</span> are <span class="math inline">\((k \times k)\)</span>, <span class="math inline">\((k \times n)\)</span>, and <span class="math inline">\((l \times k)\)</span>, respectively. The system noise <span class="math inline">\(w_t\)</span> and the observation noise <span class="math inline">\(v_t\)</span> are sampled from <span class="math inline">\(N(0, W)\)</span> and <span class="math inline">\(N(0,V)\)</span>, respectively, where <span class="math inline">\(W\)</span> is a <span class="math inline">\((k \times k)\)</span> covariance matrix and <span class="math inline">\(V\)</span> is an <span class="math inline">\((l \times l)\)</span> covariance matrix. The Kalman Filter is used to estimate the state vector <span class="math inline">\(x_t\)</span> given the observations <span class="math inline">\(y_t\)</span>.</p>
+<p>The aims of the problem obtain the estimate <span class="math inline">\(x_{t|t}\)</span> of the state vector <span class="math inline">\(x_t\)</span> and the estimate <span class="math inline">\(P_{t}\)</span> of the covariance matrix of the <span class="math inline">\(x_t\)</span> at time <span class="math inline">\(t\)</span>. The two estimates are defined as follows: <span class="math display">\[
+x_{t|t} = E[x_t|y_1, y_2, \ldots, y_t]
+\]</span> <span class="math display">\[
+P_{t|t} = \text{cov}[(x_t - x_{t|t})] = \text{E}\bigl[(x_t - x_{t|t})(x_t - x_{t|t})^t \bigr]
+\]</span></p>
 </section>
 <section id="the-kalman-filter" class="level3">
 <h3 class="anchored" data-anchor-id="the-kalman-filter">The Kalman filter</h3>
@@ -199,7 +204,7 @@ x_t=Fx_{t-1} + E u_t + w_t
 <section id="running-code" class="level2">
 <h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
 <p>See “run_kf_qr_1.R” and “run_kf_qr_2.R” in “tools/”.</p>
-<p><strong>To be added: </strong></p>
+<p><strong>To be added:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
