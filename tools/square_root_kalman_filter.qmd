@@ -7,7 +7,7 @@ editor: visual
 
 ## Introduction
 
-In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions. The Kalman filter is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter using only QR decompositions is an alternative to the plain-vanilla Kalman filter, which is proposed by Tracy (2022). The square root Kalman filter is numerically more stable than the Kalman filter.
+In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions. The Kalman filter (Kalman (1960)) is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter using only QR decompositions is an alternative to the plain-vanilla Kalman filter, which is proposed by Tracy (2022). The square root Kalman filter is numerically more stable than the Kalman filter.
 
 ## The Kalman filter and the square root Kalman filter using only QR decompositions
 
@@ -59,7 +59,28 @@ The Kalman filter is implemented using the following recursion:
 
     3.  $P_{t|t} = (I - K_t H) P_{t|t-1}$
 
-where $x_{t|t}$ is the estimated state vector at, $P_{t|t}$ is the estimated state covariance matrix, and $K_t$ is the Kalman gain at time t. See Kitagawa, (2010) for more details.
+where $x_{t|t}$ is the estimated state vector at, $P_{t|t}$ is the estimated state covariance matrix, and $K_t$ is the Kalman gain at time t. 
+
+#### The outline of derivation of $P_{t|t}$ and $K_t$
+
+\begin{align*}
+P_{t|t} &= \text{cov}\bigl[ x_t - x_{t|t} \bigr] \\
+P_{t|t} &= \text{cov}\bigl[ x_t - \bigl( x_{t|t-1} + K_t e_t \bigr) \bigr] \\
+P_{t|t} &= \text{cov}\bigl[ x_t - \bigl( x_{t|t-1} + K_t (y_t - H x_{t|t-1}) \bigr) \bigr] \\
+P_{t|t} &= \text{cov}\bigl[ x_t - \bigl( x_{t|t-1} + K_t (Hx_t+v_t - H x_{t|t-1}) \bigr) \bigr] \\
+P_{t|t} &= \text{cov}\bigl[ (I - K_t H)(x_t - x_{t|t-1}) - K_t v_t)\bigr] \\
+P_{t|t} &= (I - K_t H) \text{cov}\bigl[(x_t - x_{t|t-1}) \bigr] {(I - K_t H)}^t + K_t \text{cov}\bigl[v_t \bigr] K_t^t \\
+P_{t|t} &= (I - K_t H) P_{t|t-1} {(I - K_t H)}^t + K_t R_t K_t^t,
+\end{align*}
+where $R_t = \text{cov}\bigl[v_t \bigr]$.
+
+\begin{align*}
+&P_{t|t} = P_{t|t-1} - K_t H P_{t|t-1} -  P_{t|t-1} H^t {K_t}^t + K_t R K_t^t \\
+&\frac{\partial tr(P_{t|t})}{\partial K_t} = -2 {(H P_{t|t-1})}^t + 2 K_t S_t = 0 \\
+&K_t = P_{t|t-1} H^t S_t^{-1},
+\end{align*}
+
+See Kitagawa, (2010) for more details.
 
 ### The square root Kalman filter using only QR decompositions
 
@@ -87,7 +108,7 @@ The QR Kalman filter is implemented using the following recursion
 
     3.  $\Sigma_{t|t} = gr_r(\Sigma_{t|t-1}{(I - K_t H)}^t, \Gamma_w {K_t}^t),$
 
-where $\Sigma_{t|t}=\sqrt{P_{t|t}}$ ,the Cholesky decompositions of the covariance matrices $P_{t|t}$. The function $gr_r$ returns the matrix $R$ of the QR decomposition of the matrix. The matrices $\Gamma_v$ and $\Gamma_w$ are the Cholesky decompositions of $V$ and $W$, respectively. See Tracy (2022) for more details.
+where $\Sigma_{t|t}=\sqrt{P_{t|t}}$, the Cholesky decompositions of the covariance matrices $P_{t|t}$. The function $gr_r$ returns the matrix $R$ of the QR decomposition of the matrix. The matrices $\Gamma_v$ and $\Gamma_w$ are the Cholesky decompositions of $V$ and $W$, respectively. See Tracy (2022) for more details.
 
 ## Running Code
 
