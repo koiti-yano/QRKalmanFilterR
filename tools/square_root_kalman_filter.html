@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Koichi (Koiti) Yano (koiti.yano@ymail.ne.jp)">
+<meta name="author" content="Koichi (Koiti) Yano">
 
 <title>The Kalman filter and the square root Kalman filter using only QR decompositions</title>
 <style>
@@ -119,7 +119,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Koichi (Koiti) Yano (koiti.yano@ymail.ne.jp) </p>
+             <p>Koichi (Koiti) Yano </p>
           </div>
   </div>
     
@@ -134,7 +134,7 @@ window.Quarto = {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions. The Kalman filter is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter using only QR decompositions is an alternative to the Kalman filter, which is proposed by Tracy (2022). The square root Kalman filter is numerically more stable than the Kalman filter.</p>
+<p>In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions. The Kalman filter is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter using only QR decompositions is an alternative to the plain-vanilla Kalman filter, which is proposed by Tracy (2022). The square root Kalman filter is numerically more stable than the Kalman filter.</p>
 </section>
 <section id="the-kalman-filter-and-the-square-root-kalman-filter-using-only-qr-decompositions" class="level2">
 <h2 class="anchored" data-anchor-id="the-kalman-filter-and-the-square-root-kalman-filter-using-only-qr-decompositions">The Kalman filter and the square root Kalman filter using only QR decompositions</h2>
@@ -188,30 +188,24 @@ x_t=Fx_{t-1} + E u_t + w_t
 </ol></li>
 <li><p>Update step:</p>
 <ol type="1">
-<li><p><span class="math inline">\(K_t={[G_t^{-1} (G_t^{-t} H) {\Sigma_{t|t-1}}^t(\Sigma_{t|t-1})]}^t\)</span></p></li>
+<li><p><span class="math inline">\(K_t={[G_t^{-1} (G_t^{-t} H) {(\Sigma_{t|t-1})}^t(\Sigma_{t|t-1})]}^t\)</span></p></li>
 <li><p><span class="math inline">\(x_{t|t} = x_{t|t-1} + K_t e_t\)</span></p></li>
-<li><p><span class="math inline">\(\Sigma_{t|t} = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t),\)</span></p></li>
+<li><p><span class="math inline">\(\Sigma_{t|t} = gr_r(\Sigma_{t|t-1}{(I - K_t H)}^t, \Gamma_w {K_t}^t),\)</span></p></li>
 </ol></li>
 </ol>
-<p>where <span class="math inline">\(\Sigma_{t|t}=\sqrt{P_{t|t}}\)</span>. The function <span class="math inline">\(gr_r\)</span> returns the matrix <span class="math inline">\(R\)</span> of the QR decomposition of the matrix. The matrices <span class="math inline">\(\Gamma_v\)</span> and <span class="math inline">\(\Gamma_w\)</span> are the Cholesky decompositions of the covariance matrices of the state noise and the observation noise, respectively. See Tracy (2022) for more details.</p>
+<p>where <span class="math inline">\(\Sigma_{t|t}=\sqrt{P_{t|t}}\)</span> ,the Cholesky decompositions of the covariance matrices <span class="math inline">\(P_{t|t}\)</span>. The function <span class="math inline">\(gr_r\)</span> returns the matrix <span class="math inline">\(R\)</span> of the QR decomposition of the matrix. The matrices <span class="math inline">\(\Gamma_v\)</span> and <span class="math inline">\(\Gamma_w\)</span> are the Cholesky decompositions of the covariance matrices of the state noise and the observation noise, respectively. See Tracy (2022) for more details.</p>
 </section>
 </section>
 <section id="running-code" class="level2">
 <h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
-<p><strong>To be added: </strong> When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<p>See “run_kf_qr_1.R” and “run_kf_qr_2.R” in “tools/”.</p>
+<p><strong>To be added: </strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
-<p>You can add options to executable code like this</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
 </section>
 
 </main>

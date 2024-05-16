@@ -1,7 +1,7 @@
 ---
 title: "The Kalman filter and the square root Kalman filter using only QR decompositions"
 author: "Koichi (Koiti) Yano"
-format: pdf
+format: html
 editor: visual
 ---
 
@@ -71,13 +71,13 @@ The QR Kalman filter is implemented using the following recursion
 
 3.  Update step:
 
-    1.  $K_t={[G_t^{-1} (G_t^{-t} H) {\Sigma_{t|t-1}}^t(\Sigma_{t|t-1})]}^t$
+    1.  $K_t={[G_t^{-1} (G_t^{-t} H) {(\Sigma_{t|t-1})}^t(\Sigma_{t|t-1})]}^t$
 
     2.  $x_{t|t} = x_{t|t-1} + K_t e_t$
 
-    3.  $\Sigma_{t|t} = gr_r(\Sigma(t|t-1) {(I - K(t) H)}^t, \Gamma_w {K(t)}^t),$
+    3.  $\Sigma_{t|t} = gr_r(\Sigma_{t|t-1}{(I - K_t H)}^t, \Gamma_w {K_t}^t),$
 
-where $\Sigma_{t|t}=\sqrt{P_{t|t}}$. The function $gr_r$ returns the matrix $R$ of the QR decomposition of the matrix. The matrices $\Gamma_v$ and $\Gamma_w$ are the Cholesky decompositions of the covariance matrices of the state noise and the observation noise, respectively. See Tracy (2022) for more details.
+where $\Sigma_{t|t}=\sqrt{P_{t|t}}$ ,the Cholesky decompositions of the covariance matrices $P_{t|t}$. The function $gr_r$ returns the matrix $R$ of the QR decomposition of the matrix. The matrices $\Gamma_v$ and $\Gamma_w$ are the Cholesky decompositions of the covariance matrices of the state noise and the observation noise, respectively. See Tracy (2022) for more details.
 
 ## Running Code
 
