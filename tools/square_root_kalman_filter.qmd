@@ -7,7 +7,7 @@ editor: visual
 
 ## Introduction
 
-In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions. The Kalman filter (Kalman (1960)) is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter using only QR decompositions is an alternative to the plain-vanilla Kalman filter, which is proposed by Tracy (2022). The square root Kalman filter is numerically more stable than the Kalman filter.
+In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions. The Kalman filter (Kalman (1960)) is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter using only QR decompositions is an alternative to the plain-vanilla Kalman filter, which is proposed by Tracy (2022). The square root Kalman filter is numerically more stable than the Kalman filter (See Anderson and Moore (1979)).
 
 ## The Kalman filter and the square root Kalman filter using only QR decompositions
 
@@ -80,7 +80,7 @@ where $R_t = \text{cov}\bigl[v_t \bigr]$.
 &K_t = P_{t|t-1} H^t S_t^{-1},
 \end{align*}
 
-See Kitagawa, (2010) for more details.
+See Kitagawa (2010) for more details.
 
 ### The square root Kalman filter using only QR decompositions
 
