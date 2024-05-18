@@ -4,8 +4,6 @@ An R implimentation of the Square root Kalman Filter using only QR decomposition
 
 <img src="/tools/hex_QRKalman.png" width="200">
 
-![Test Image 3](/tools/hex_QRKalman.png) 
-
 ## Installation
 ```R
 # install.packages("devtools")
