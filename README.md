@@ -1,6 +1,9 @@
 # QRKalmanFilterR
 An R implimentation of the Square root Kalman Filter using only QR decompositions. Please be advised that all codes and documents are provisional as the project is currently in progress. Any comments are welcome in discussion.
 
+
+![Test Image 3](/tools/hex_QRKalman.png) 
+
 ## Installation
 ```R
 # install.packages("devtools")
