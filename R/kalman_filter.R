@@ -1,6 +1,7 @@
 #' @title kalman_filter
 #' @author Koichi (Koiti) Yano
 #' @export
+#'
 kalman_filter <- function(yy, uu = 0, xx, PP, ss, ee,
                           FF, EE = 0, HH, VV, WW, KK) {
 
