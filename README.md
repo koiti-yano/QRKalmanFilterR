@@ -19,11 +19,7 @@ See "run_kf_qr_1.R" and "run_kf_qr_2.R" in "tools/".
 See PDFs in "tools/".
 
 ## References
-Anderson, Brian D. O., Moore, John B, (1979), Optimal Filtering, Dover Books.
-
-Kitagawa, Genshiro, (2010), Introduction to Time Series Modeling, Chapman & Hall.
-
-Tracy, Kevin, (2022), "A Square-Root Kalman Filter Using Only QR Decompositions," https://arxiv.org/abs/2208.06452
-
-Tracy, Kevin, (2022), QRKalmanFilter, 
-https://github.com/kevin-tracy/QRKalmanFilter
+- Anderson, Brian D. O., Moore, John B, (1979), Optimal Filtering, Dover Books.
+- Kitagawa, Genshiro, (2010), Introduction to Time Series Modeling, Chapman & Hall.
+- Tracy, Kevin, (2022), "A Square-Root Kalman Filter Using Only QR Decompositions," https://arxiv.org/abs/2208.06452
+- Tracy, Kevin, (2022), QRKalmanFilter, https://github.com/kevin-tracy/QRKalmanFilter
