@@ -6,9 +6,10 @@ editor: visual
 ---
 
 
+
 ## Introduction
 
-In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions. The Kalman filter (Kalman (1960)) is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter using only QR decompositions is an alternative to the plain-vanilla Kalman filter, which is proposed by Tracy (2022). The square root Kalman filter is numerically more stable than the Kalman filter (See Anderson and Moore (1979)).
+In this note, I outline the algorithms for the Kalman filter and the square root Kalman filter using only QR decompositions, which is proposed by Tracy (2022). The Kalman filter (Kalman (1960)) is a recursive algorithm that estimates the state vector of a linear Gaussian state space model. The square root Kalman filter using only QR decompositions is an alternative to the plain-vanilla Kalman filter. The square root Kalman filter is numerically more stable than the Kalman filter (See Anderson and Moore (1979)).
 
 ## The Kalman filter and the square root Kalman filter using only QR decompositions
 
@@ -60,7 +61,7 @@ The Kalman filter is implemented using the following recursion:
 
     3.  $P_{t|t} = (I - K_t H) P_{t|t-1}$
 
-where $x_{t|t}$ is the estimated state vector at, $P_{t|t}$ is the estimated state covariance matrix, and $K_t$ is the Kalman gain at time t. 
+where $x_{t|t}$ is the estimated state vector at, $P_{t|t}$ is the estimated state covariance matrix, and $K_t$ is the Kalman gain at time t.
 
 #### The outline of derivation of $P_{t|t}$ and $K_t$
 
@@ -72,8 +73,7 @@ P_{t|t} &= \text{cov}\bigl[ x_t - \bigl( x_{t|t-1} + K_t (Hx_t+v_t - H x_{t|t-1}
 P_{t|t} &= \text{cov}\bigl[ (I - K_t H)(x_t - x_{t|t-1}) - K_t v_t)\bigr] \\
 P_{t|t} &= (I - K_t H) \text{cov}\bigl[(x_t - x_{t|t-1}) \bigr] {(I - K_t H)}^t + K_t \text{cov}\bigl[v_t \bigr] K_t^t \\
 P_{t|t} &= (I - K_t H) P_{t|t-1} {(I - K_t H)}^t + K_t R_t K_t^t,
-\end{align*}
-where $R_t = \text{cov}\bigl[v_t \bigr]$.
+\end{align*} where $R_t = \text{cov}\bigl[v_t \bigr]$.
 
 \begin{align*}
 &P_{t|t} = P_{t|t-1} - K_t H P_{t|t-1} -  P_{t|t-1} H^t {K_t}^t + K_t R K_t^t \\
@@ -116,6 +116,7 @@ where $\Sigma_{t|t}=\sqrt{P_{t|t}}$, the Cholesky decompositions of the covarian
 See "run_kf_qr_1.R" and "run_kf_qr_2.R" in "tools/".
 
 **To be added:**
+
 
 
 ::: {.cell}
