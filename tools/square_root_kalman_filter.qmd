@@ -49,11 +49,11 @@ The Kalman filter is implemented using the following recursion:
 
     1.  $e_t = y_t - H x_{t|t-1}$
 
-    2.  $s_t = H P_{t-1|t-1}H^t + W$
+    2.  $S_t = H P_{t-1|t-1}H^t + W$
 
 3.  Update step:
 
-    1.  $K_t=P_{t|t-1} H^t s_t^{-1}$
+    1.  $K_t=P_{t|t-1} H^t S_t^{-1}$
 
     2.  $x_{t|t} = x_{t|t-1} + K_t e_t$
 

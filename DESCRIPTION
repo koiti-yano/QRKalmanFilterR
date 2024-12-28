@@ -1,6 +1,6 @@
 Package: QRKalmanFilterR
 Type: Package
-Title: An R implimentation of Square root Kalman Filter using only QR decompositions.
+Title: An R implimentation of square root Kalman Filter using only QR decompositions.
 Version: 0.1.0
 Author: Koichi (Koiti) Yano
 Maintainer: Koiti Yano <koiti.yano at ymail.ne.jp>
